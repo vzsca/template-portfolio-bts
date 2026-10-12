@@ -28,6 +28,7 @@ La matrice de compétences est générée automatiquement : une coche ✓ ouvre 
 - `_layouts/default.html` et `_layouts/projet.html` : mise en page
 - `_data/competences.yml` : compétences de la matrice
 - `css/style.css` : thème et responsive
+- `js/navigation.js` : navigation active, chargé avec `defer`
 - `_config.yml` : configuration Jekyll
 - `mentions-legales.md` : modèle à personnaliser
 
