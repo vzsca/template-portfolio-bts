@@ -1,3 +1,9 @@
+---
+layout: default
+title: Mentions légales
+permalink: /mentions-legales/
+---
+
 # Mentions légales — modèle à adapter
 
 Ce document est un point de départ, pas un conseil juridique. Complétez les informations adaptées à votre site et vérifiez les obligations applicables.
