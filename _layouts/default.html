@@ -6,44 +6,36 @@
   <meta name="theme-color" content="#080d0a">
   <title>{% if page.title and page.title != "Accueil" %}{{ page.title }} · {% endif %}{{ site.title }}</title>
   <meta name="description" content="{{ page.resume | default: site.description | escape }}">
-  <link rel="stylesheet" href="{{ '/css/style.css?v=26' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
+  <script src="{{ '/js/navigation.js' | relative_url }}" defer></script>
 </head>
 <body>
-  <header><div class="wrap header-inner">
-    <a class="brand" href="{{ '/' | relative_url }}">~/portfolio-bts</a>
-    <nav aria-label="Navigation principale">
-      <a href="{{ '/' | relative_url }}#top">accueil</a>
-      <a href="{{ '/' | relative_url }}#projets">projets</a>
-      <a href="{{ '/' | relative_url }}#competences">compétences</a>
-      <a class="{% if page.url == '/mentions-legales/' %}active{% endif %}" href="{{ '/mentions-legales/' | relative_url }}">mentions légales</a>
-    </nav>
-  </div></header>
+  <header>
+    <div class="wrap header-inner">
+      <a class="brand" href="{{ '/' | relative_url }}">~/portfolio-bts</a>
+      <nav aria-label="Navigation principale">
+        <a href="{{ '/' | relative_url }}#top">accueil</a>
+        <a href="{{ '/' | relative_url }}#projets">projets</a>
+        <a href="{{ '/' | relative_url }}#competences">compétences</a>
+        <a class="{% if page.url == '/mentions-legales/' %}active{% endif %}" href="{{ '/mentions-legales/' | relative_url }}">mentions légales</a>
+      </nav>
+    </div>
+  </header>
+
   {{ content }}
-  <footer><div class="wrap footer-inner">
-    <p>© {{ site.time | date: "%Y" }} {{ site.title }} — modèle sous licence MIT.</p>
-    <nav aria-label="Navigation de pied de page">
-      <a href="{{ '/' | relative_url }}#projets">projets</a>
-      <a href="{{ '/' | relative_url }}#competences">compétences</a>
-      <a href="{{ '/mentions-legales/' | relative_url }}">mentions légales</a>
-      {% if site.github_username != "" and site.github_username != "YOUR-USERNAME" %}<a class="hl" href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener noreferrer">github ↗</a>{% endif %}
-    </nav>
-  </div></footer>
-  <script>
-    (function () {
-      var links = document.querySelectorAll('header nav a[href*="#"]');
-      if (!('IntersectionObserver' in window)) return;
-      var sections = ['top', 'projets', 'competences'].map(function (id) { return document.getElementById(id); }).filter(Boolean);
-      var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          links.forEach(function (link) {
-            var target = new URL(link.href, window.location.href).hash;
-            link.classList.toggle('active', target === '#' + entry.target.id);
-          });
-        });
-      }, { rootMargin: '-35% 0px -55% 0px' });
-      sections.forEach(function (section) { observer.observe(section); });
-    })();
-  </script>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <p>© {{ site.time | date: "%Y" }} {{ site.title }} — modèle sous licence MIT.</p>
+      <nav aria-label="Navigation de pied de page">
+        <a href="{{ '/' | relative_url }}#projets">projets</a>
+        <a href="{{ '/' | relative_url }}#competences">compétences</a>
+        <a href="{{ '/mentions-legales/' | relative_url }}">mentions légales</a>
+        {% if site.github_username != "" and site.github_username != "YOUR-USERNAME" %}
+          <a class="hl" href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener noreferrer">github ↗</a>
+        {% endif %}
+      </nav>
+    </div>
+  </footer>
 </body>
 </html>
